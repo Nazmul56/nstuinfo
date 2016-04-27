@@ -5,6 +5,8 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.TextView;
 
@@ -21,7 +23,13 @@ public class DetaitlsActivity extends AppCompatActivity {
 
         TextView URLtv = (TextView)findViewById(R.id.urltv);
         String UrlFrom_MainActivity= getIntent().getStringExtra("url");
-        URLtv.setText(UrlFrom_MainActivity);
+       // URLtv.setText(UrlFrom_MainActivity);
+
+        URLtv.setText(Html.fromHtml( UrlFrom_MainActivity));
+
+        // Making url clickable
+        URLtv.setMovementMethod(LinkMovementMethod.getInstance());
+        URLtv.setVisibility(View.VISIBLE);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

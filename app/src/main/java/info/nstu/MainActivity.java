@@ -209,6 +209,18 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+
+
+    private String getHtmlData(Context context, String data)
+    {
+
+        String head = "<head><style>@font-face {font-family: 'verdana';src: url('file:///android_asset/fonts/verdana.ttf');}body {width=600;height=1024;margin:10px;font-family:'verdana';font-size:12px}</style></head>";
+        String htmlData= "<html>"+head+"<body>"+data+"</body></html>" ;
+
+        return htmlData;
+    }
+
     public interface ClickListener {
         void onClick(View view, int position);
 

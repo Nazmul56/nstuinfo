@@ -199,7 +199,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void prepareMovieData() {
 
-        new HttpAsyncTask().execute("http://nazmul56.github.io/get.json");
+        new HttpAsyncTask().execute("http://nazmul56.github.io/nget.json");
 
    /*     Movie movie = new Movie("Mad Max: Fury Road", "Action & Adventure", "2015");
         movieList.add(movie);

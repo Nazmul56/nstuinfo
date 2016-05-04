@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="info.androidhive.recyclerview">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -24,6 +27,15 @@
         <activity
             android:name="info.nstu.DetaitlsActivity"
             android:label="@string/title_activity_detaitls"
+            android:parentActivityName="info.nstu.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="info.nstu.MainActivity" />
+        </activity>
+        <activity
+            android:name="info.nstu.ImageViewTest"
+            android:label="@string/title_activity_image_view"
             android:parentActivityName="info.nstu.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data

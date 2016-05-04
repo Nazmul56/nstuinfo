@@ -7,6 +7,8 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -57,6 +59,18 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         tvIsConnected = (TextView) findViewById(R.id.tvIsConnected);
+
+
+         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_main);
+         fab.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+        Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+        .setAction("Action", null).show();
+            Intent i = new Intent(getApplicationContext(), ImageViewTest.class);
+            startActivity(i);
+        }
+        });
 
 
         // check if you are connected or not
@@ -179,6 +193,7 @@ public class MainActivity extends AppCompatActivity {
         protected String doInBackground(String... urls) {
 
             return GET(urls[0]);
+
         }
 
         // onPostExecute displays the results of the AsyncTask.
@@ -377,9 +392,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
-
-
 
     public void OffLineData(){
 
@@ -651,6 +663,10 @@ public class MainActivity extends AppCompatActivity {
         return htmlData;
     }
 
+
+
+
+
     public interface ClickListener {
         void onClick(View view, int position);
 
@@ -699,5 +715,10 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
+
+
+
+
+
 
 }

@@ -14,9 +14,9 @@ import java.util.List;
 
 import info.androidhive.recyclerview.R;
 
-public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHolder> {
+public class RecyclerDataAdapter extends RecyclerView.Adapter<RecyclerDataAdapter.MyViewHolder> {
 
-    private List<Movie> moviesList;
+    private List<RecyclerData> moviesList;
     ColorGenerator generator = ColorGenerator.MATERIAL;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
@@ -36,7 +36,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
     }
 
 
-    public MoviesAdapter(List<Movie> moviesList) {
+    public RecyclerDataAdapter(List<RecyclerData> moviesList) {
         this.moviesList = moviesList;
     }
 
@@ -50,11 +50,11 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        Movie movie = moviesList.get(position);
-        holder.title.setText(movie.getTitle());
-        holder.genre.setText(movie.getGenre());
-        holder.year.setText(movie.getYear());
-        String letter = String.valueOf(movie.getTitle().charAt(0));
+        RecyclerData recyclerData = moviesList.get(position);
+        holder.title.setText(recyclerData.getTitle());
+        holder.genre.setText(recyclerData.getGenre());
+        holder.year.setText(recyclerData.getYear());
+        String letter = String.valueOf(recyclerData.getTitle().charAt(0));
 
         TextDrawable drawable = TextDrawable.builder()
                 .buildRound(letter, generator.getRandomColor());

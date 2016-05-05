@@ -43,9 +43,9 @@ import java.util.List;
 import info.androidhive.recyclerview.R;
 
 public class MainActivity extends AppCompatActivity {
-    private List<Movie> movieList = new ArrayList<>();
+    private List<RecyclerData> recyclerDataList = new ArrayList<>();
     private RecyclerView recyclerView;
-    private MoviesAdapter mAdapter;
+    private RecyclerDataAdapter mAdapter;
 
     EditText etResponse;
     TextView tvIsConnected;
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
-        mAdapter = new MoviesAdapter(movieList);
+        mAdapter = new RecyclerDataAdapter(recyclerDataList);
 
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
@@ -97,11 +97,11 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new ClickListener() {
             @Override
             public void onClick(View view, int position) {
-                Movie movie = movieList.get(position);
-                Toast.makeText(getApplicationContext(), movie.getTitle() + " is selected!", Toast.LENGTH_SHORT).show();
+                RecyclerData recyclerData = recyclerDataList.get(position);
+                Toast.makeText(getApplicationContext(), recyclerData.getTitle() + " is selected!", Toast.LENGTH_SHORT).show();
 
                 Intent details = new Intent(MainActivity.this, DetaitlsActivity.class);
-                details.putExtra("url", movie.getUrl());
+                details.putExtra("url", recyclerData.getUrl());
                 startActivity(details);
 
 
@@ -138,10 +138,6 @@ public class MainActivity extends AppCompatActivity {
 
         new HttpAsyncTask().execute("http://nazmul56.github.io/nget.json");
 
-   /*     Movie movie = new Movie("Mad Max: Fury Road", "Action & Adventure", "2015");
-        movieList.add(movie);
-
-       */
 
     }
 
@@ -223,8 +219,8 @@ public class MainActivity extends AppCompatActivity {
                 int jasonObjecLenth =json.getJSONArray("articleList").length();
                 for(int i = 0; i<jasonObjecLenth;i++) {
 
-                    Movie movie = new Movie(articles.getJSONObject(i).getString("title") , articles.getJSONObject(i).getString("categories"), "", articles.getJSONObject(i).getString("url"));
-                    movieList.add(movie);
+                    RecyclerData recyclerData = new RecyclerData(articles.getJSONObject(i).getString("title") , articles.getJSONObject(i).getString("categories"), "", articles.getJSONObject(i).getString("url"));
+                    recyclerDataList.add(recyclerData);
 
                 }
 
@@ -269,8 +265,8 @@ public class MainActivity extends AppCompatActivity {
             int jasonObjecLenth =json.getJSONArray("articleList").length();
             for(int i = 0; i<jasonObjecLenth;i++) {
 
-                Movie movie = new Movie(articles.getJSONObject(i).getString("title") , articles.getJSONObject(i).getString("categories"), "", articles.getJSONObject(i).getString("url"));
-                movieList.add(movie);
+                RecyclerData recyclerData = new RecyclerData(articles.getJSONObject(i).getString("title") , articles.getJSONObject(i).getString("categories"), "", articles.getJSONObject(i).getString("url"));
+                recyclerDataList.add(recyclerData);
 
             }
 

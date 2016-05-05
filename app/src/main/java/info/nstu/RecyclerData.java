@@ -3,13 +3,13 @@ package info.nstu;
 /**
  * Created by Nazmul Haque on 24/10/16.
  */
-public class Movie {
+public class RecyclerData {
     private String title, genre, year, url;
 
-    public Movie() {
+    public RecyclerData() {
     }
 
-    public Movie(String title, String genre, String year, String url) {
+    public RecyclerData(String title, String genre, String year, String url) {
         this.title = title;
         this.genre = genre;
         this.year = year;

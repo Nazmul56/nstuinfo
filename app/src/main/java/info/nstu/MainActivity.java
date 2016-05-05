@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        tvIsConnected = (TextView) findViewById(R.id.tvIsConnected);
+       // tvIsConnected = (TextView) findViewById(R.id.tvIsConnected);
 
 
          FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_main);
@@ -75,13 +75,13 @@ public class MainActivity extends AppCompatActivity {
 
         // check if you are connected or not
 
-        if(isConnected()){
+       /* if(isConnected()){
             tvIsConnected.setBackgroundColor(0xFF00CC00);
             tvIsConnected.setText("You are conncted");
         }
         else{
             tvIsConnected.setText("You are NOT conncted");
-        }
+        }*/
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
@@ -101,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), recyclerData.getTitle() + " is selected!", Toast.LENGTH_SHORT).show();
 
                 Intent details = new Intent(MainActivity.this, DetaitlsActivity.class);
+                details.putExtra("title",recyclerData.getTitle());
                 details.putExtra("url", recyclerData.getUrl());
                 startActivity(details);
 
@@ -285,8 +286,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
 
+        recyclerDataList.clear();
+        OffLineData();
 
+    }
 
     /** Store Data into file*/
     public class ReadWriteJsonFileUtils {

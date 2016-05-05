@@ -18,10 +18,16 @@ public class DetaitlsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detaitls);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        String Title= getIntent().getStringExtra("title");
+        toolbar.setTitle(Title);
         setSupportActionBar(toolbar);
+
+
+
 
         TextView URLtv = (TextView)findViewById(R.id.urltv);
         WebView detatils_wv = (WebView)findViewById(R.id.webview);
+
         detatils_wv.getSettings().setJavaScriptEnabled(true);
         String UrlFrom_MainActivity= getIntent().getStringExtra("url");
        // URLtv.setText(UrlFrom_MainActivity);

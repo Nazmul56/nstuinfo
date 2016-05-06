@@ -23,8 +23,6 @@ public class DetaitlsActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
-
-
         TextView URLtv = (TextView)findViewById(R.id.urltv);
         WebView detatils_wv = (WebView)findViewById(R.id.webview);
 
